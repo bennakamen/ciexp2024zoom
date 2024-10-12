@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI Experience Room Finder</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+      
+      body, html {
+        height: 100%;
+        margin: 0;
+        font-family: 'DM Sans', Arial, sans-serif;
+      }
+      
+      body {
+        background: linear-gradient(135deg, #0000FF, #8A2BE2, #FF69B4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+      
+      .container {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 40px;
+        text-align: center;
+        max-width: 90%;
+        width: 400px;
+      }
+      
+      .logo {
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      
+      h1 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+      }
+      
+      p {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+      
+      input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+      }
+      
+      input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      
+      button {
+        background-color: #000a99;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+      
+      button:hover {
+        background-color: #0011cc;
+      }
+      
+      #result {
+        margin-top: 20px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="https://drive.google.com/uc?export=view&id=YOUR_IMAGE_ID" alt="Compassionate Inquiry Logo" class="logo">
+      <h1>Find Your CI Experience Facilitated Room Zoom Link</h1>
+      <p>Enter your last name below to receive your specific Zoom link for the CI Experience. This link will direct you to your assigned facilitated room.</p>
+      <input type="text" id="lastName" placeholder="Enter your last name">
+      <button onclick="getLink()">Get Zoom Link</button>
+      <p id="result"></p>
+      <p>After clicking "Get Zoom Link", you'll receive a unique Zoom link based on your last name. This link will connect you to your designated facilitated room for the CI Experience.</p>
+    </div>
+    
+    <script>
+      function getLink() {
+        var lastName = document.getElementById('lastName').value;
+        google.script.run.withSuccessHandler(showLink).getLinkForLastName(lastName);
+      }
+      
+      function showLink(link) {
+        document.getElementById('result').innerHTML = link;
+      }
+    </script>
+  </body>
+</html>
