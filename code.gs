@@ -13,13 +13,13 @@ function getLinkForLastName(lastName) {
   const zoomLinks = {
     'AB': 'https://zoom.us/j/1111111111',
     'CD': 'https://zoom.us/j/2222222222',
-    'EG': 'https://zoom.us/j/3333333333',
+    'EFG': 'https://zoom.us/j/3333333333',
     'HIJ': 'https://zoom.us/j/4444444444',
     'KL': 'https://zoom.us/j/5555555555',
     'MNO': 'https://zoom.us/j/6666666666',
-    'PR': 'https://zoom.us/j/7777777777',
+    'PQR': 'https://zoom.us/j/7777777777',
     'S': 'https://zoom.us/j/8888888888',
-    'TWYZ': 'https://zoom.us/j/9999999999'
+    'TVWXYZ': 'https://zoom.us/j/9999999999'
   };
 
   for (const [letters, link] of Object.entries(zoomLinks)) {
