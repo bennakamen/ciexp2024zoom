@@ -82,12 +82,28 @@
       #result {
         margin-top: 20px;
         font-weight: 500;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        color: white; /* "Your Zoom link is:" part will be white */
+        text-align: center;
+      }
+
+      #result a {
+        color: #000a99; /* Dark blue, same as button */
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      #result a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <img src="https://compassionateinquiry.com/wp-content/uploads/2024/03/Logo-Horizontal-2x-1-230x86.png" alt="Compassionate Inquiry Logo" class="logo">
+      <img src="https://drive.google.com/uc?export=view&id=1AI_KS_ToDwFUAwm7cyZAZXE5_idBoGGI" alt="Compassionate Inquiry Logo" class="logo">
       <h1>Find Your CI Experience Facilitated Room Zoom Link</h1>
       <p>Enter your last name below to receive your specific Zoom link for the CI Experience. This link will direct you to your assigned facilitated room.</p>
       <input type="text" id="lastName" placeholder="Enter your last name">
@@ -96,40 +112,40 @@
       <p>After clicking "Get Zoom Link", you'll receive a unique Zoom link based on your last name. This link will connect you to your designated facilitated room for the CI Experience.</p>
     </div>
     
-<script>
-    function getLinkForLastName(lastName) {
-      if (!lastName) {
-        return "Please enter a last name.";
-      }
-
-      const firstLetter = lastName.charAt(0).toUpperCase();
-      
-      const zoomLinks = {
-        'AB': 'https://zoom.us/j/1111111111',
-        'CD': 'https://zoom.us/j/2222222222',
-        'EFG': 'https://zoom.us/j/3333333333',
-        'HIJ': 'https://zoom.us/j/4444444444',
-        'KL': 'https://zoom.us/j/5555555555',
-        'MNO': 'https://zoom.us/j/6666666666',
-        'PQR': 'https://zoom.us/j/7777777777',
-        'S': 'https://zoom.us/j/8888888888',
-        'TVWXYZ': 'https://zoom.us/j/9999999999'
-      };
-
-      for (const [letters, link] of Object.entries(zoomLinks)) {
-        if (letters.includes(firstLetter)) {
-          return `Your Zoom link is: ${link}`;
+    <script>
+      function getLinkForLastName(lastName) {
+        if (!lastName) {
+          return "Please enter a last name.";
         }
+
+        const firstLetter = lastName.charAt(0).toUpperCase();
+        
+        const zoomLinks = {
+          'AB': 'https://zoom.us/j/1111111111',
+          'CD': 'https://zoom.us/j/2222222222',
+          'EFG': 'https://zoom.us/j/3333333333',
+          'HIJ': 'https://zoom.us/j/4444444444',
+          'KL': 'https://zoom.us/j/5555555555',
+          'MNO': 'https://zoom.us/j/6666666666',
+          'PQR': 'https://zoom.us/j/7777777777',
+          'S': 'https://zoom.us/j/8888888888',
+          'TVWXYZ': 'https://zoom.us/j/9999999999'
+        };
+
+        for (const [letters, link] of Object.entries(zoomLinks)) {
+          if (letters.includes(firstLetter)) {
+            return `Your Zoom link is: <a href="${link}" target="_blank">${link}</a>`;
+          }
+        }
+
+        return "No Zoom link found for this last name. Please contact the organizer.";
       }
 
-      return "No Zoom link found for this last name. Please contact the organizer.";
-    }
-
-    function getLink() {
-      var lastName = document.getElementById('lastName').value;
-      var link = getLinkForLastName(lastName);
-      document.getElementById('result').innerHTML = link;
-    }
-  </script>
-</body>
+      function getLink() {
+        var lastName = document.getElementById('lastName').value;
+        var link = getLinkForLastName(lastName);
+        document.getElementById('result').innerHTML = link;
+      }
+    </script>
+  </body>
 </html>
